@@ -4,14 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aplikacja Internetowa</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+    <!-- Nagłówek -->
     <header class="bg-primary text-white text-center p-3">
         <h1>Aplikacja Internetowa</h1>
         <p>Twoje źródło informacji i narzędzi online</p>
     </header>
-    
+
+    <!-- Pasek nawigacyjny -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item"><a class="nav-link" href="#rejestracja">Rejestracja</a></li>
@@ -20,75 +24,74 @@
         </ul>
     </nav>
 
+    <!-- Sekcja z zegarem -->
+    <section id="zegar" class="container text-center my-5">
+        <h2>Aktualny czas</h2>
+        <p id="clock" class="display-4"></p>
+    </section>
+
+    <!-- Licznik odwiedzin -->
+    <section id="licznik" class="container text-center my-5">
+        <h2>Licznik odwiedzin</h2>
+        <p id="visitCounter" class="display-4">0</p>
+    </section>
+
+    <!-- Formularz rejestracyjny -->
     <section id="rejestracja" class="container my-5">
         <h2>Formularz rejestracyjny</h2>
-        <form>
+        <form id="registerForm">
             <div class="form-group">
                 <label for="name">Imię</label>
-                <input type="text" class="form-control" id="name" placeholder="Wpisz swoje imię">
+                <input type="text" class="form-control" id="name" required placeholder="Wpisz swoje imię">
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" class="form-control" id="email" placeholder="Wpisz swój email">
+                <input type="email" class="form-control" id="email" required placeholder="Wpisz swój email">
             </div>
             <button type="submit" class="btn btn-primary">Zarejestruj się</button>
         </form>
     </section>
-    
+
+    <!-- Księga gości -->
+    <section id="ksiega" class="container my-5">
+        <h2>Księga gości</h2>
+        <div id="guestBook">
+            <!-- Wpisy będą się pojawiały tutaj -->
+        </div>
+        <h3>Dodaj wpis</h3>
+        <form id="guestBookForm">
+            <div class="form-group">
+                <label for="guestName">Imię</label>
+                <input type="text" class="form-control" id="guestName" required placeholder="Wpisz swoje imię">
+            </div>
+            <div class="form-group">
+                <label for="guestMessage">Wiadomość</label>
+                <textarea class="form-control" id="guestMessage" required placeholder="Wpisz wiadomość"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Dodaj wpis</button>
+        </form>
+    </section>
+
+    <!-- Kalkulator -->
+    <section id="kalkulator" class="container my-5">
+        <h2>Kalkulator prędkości wiatru</h2>
+        <div class="form-group">
+            <label for="windSpeedInput">Prędkość wiatru (km/h)</label>
+            <input type="number" class="form-control" id="windSpeedInput" placeholder="Podaj prędkość w km/h">
+        </div>
+        <button class="btn btn-primary" id="calculateBtn">Przelicz</button>
+        <p id="windSpeedOutput" class="mt-3"></p>
+    </section>
+
+    <!-- Stopka -->
     <footer class="text-center bg-dark text-white py-3">
         <p>&copy; 2025 Aplikacja Internetowa</p>
     </footer>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-</body>
-</html>
-<!DOCTYPE html>
-
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal Edukacyjny</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header>
-        <h1>Portal Edukacyjny</h1>
-        <nav>
-            <ul>
-                <li><a href="#home">Strona Główna</a></li>
-                <li><a href="#register">Rejestracja</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main>
-        <section id="home">
-            <h2>Witamy na Portalu Edukacyjnym</h2>
-            <p>Zarejestruj się, aby uzyskać pełny dostęp do portalu!</p>
-        </section>
-
-        <section id="register">
-            <h2>Formularz Rejestracyjny</h2>
-            <form action="register.php" method="POST">
-                <label for="email">E-mail:</label>
-                <input type="email" id="email" name="email" required>
-                <br>
-                <label for="password">Hasło:</label>
-                <input type="password" id="password" name="password" required>
-                <br>
-                <label for="confirm-password">Potwierdź hasło:</label>
-                <input type="password" id="confirm-password" name="confirm_password" required>
-                <br>
-                <button type="submit">Zarejestruj się</button>
-            </form>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2025 Portal Edukacyjny</p>
-    </footer>
+    <!-- Skrypt JavaScript -->
+    <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
