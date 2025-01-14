@@ -7,16 +7,17 @@ function updateClock() {
     document.getElementById('clock').innerText = `${hours}:${minutes}:${seconds}`;
 }
 
+// Zegar uruchamia się przy pierwszym załadowaniu strony i aktualizuje co sekundę
 setInterval(updateClock, 1000);
-
+updateClock(); 
 // Licznik odwiedzin
-let visitCount = 0;
+let visitCount = parseInt(localStorage.getItem('visitCount')) || 0; // Pobierz wartość z localStorage, jeśli jest
 function updateVisitCounter() {
-    visitCount++;
-    document.getElementById('visitCounter').innerText = visitCount;
+    visitCount++; // Zwiększamy licznik odwiedzin
+    localStorage.setItem('visitCount', visitCount); // Zapisujemy liczbę odwiedzin do localStorage
+    document.getElementById('visitCounter').innerText = visitCount; // Wyświetlamy na stronie
 }
-updateVisitCounter();  // Wywołaj przy pierwszym załadowaniu
-
+updateVisitCounter();
 // Formularz rejestracyjny
 document.getElementById('registerForm').addEventListener('submit', function (e) {
     e.preventDefault();
